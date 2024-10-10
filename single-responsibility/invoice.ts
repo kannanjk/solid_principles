@@ -7,7 +7,6 @@ export class Invoice {
         
         product.forEach((product) => {
             console.log(`${product.name}\t\t${product.price}`);
-
         })
         console.log('......');
         console.log(`total :${amount}`);

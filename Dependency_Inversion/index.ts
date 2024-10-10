@@ -1,12 +1,10 @@
-// expamle 1 : using interfaces to achive loose coupling
-
-// high-level modul
-interface UserService {
+interface IUserService {
     save(user: user): any;
 }
 interface user { }
+
 class UserService {
-    constructor(private repository: UserService) { }
+    constructor(private repository: IUserService) { }
     save(user: user) {
         this.repository.save(user)
     }
@@ -20,9 +18,11 @@ interface UserRepository {
 // implimentation of abstrsction
 class UserRepoImpl implements UserRepository {
     save(user: user): void {
-        // Saving user datas
+        // Saving user datas....
     }
 }
+
+const use = new UserService(new UserRepoImpl)
 
 // expamle 2 : using interfaces to achive loose coupling
 
@@ -39,4 +39,6 @@ class UserRepo {
     }
 }
 // this UserRepository is injected into the UserService
-const userServ = new UserService2(new UserRepo())
+const userServ = new UserService2(new UserRepo)
+
+console.log(userServ);

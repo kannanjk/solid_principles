@@ -16,7 +16,7 @@ export class ManageSalary {
             id:3,
             role:"tester",
             rate:100
-        }
+        } 
       ]
     }
     getData(){
